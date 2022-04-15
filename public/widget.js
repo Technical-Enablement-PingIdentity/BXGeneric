@@ -81,4 +81,4 @@ document.addEventListener('click', function (e){
 });
 
 // load the Remix Widget
-configureEventListener('remix-bx-link', 'widgetbox', 'e6df00756fd2f66ea573a3a90ab8e938', { GlitchProject: window.glitchRemixProject });
+configureEventListener('remix-bx-link', 'widgetbox', '3ed9d9b5eebdfe52eb2d566afd79e074', { GlitchProject: window.glitchRemixProject });
