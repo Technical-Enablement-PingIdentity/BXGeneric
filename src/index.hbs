@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <!-- 
+      This is the main Handlebars template for the site 
+      - When the user visits the homepage or submits a color the app calls the endpoints in server.js
+      - The server script passes data in here and the Handlebars code builds it into the HTML page
+    -->
+    
+    <meta charset="utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BXGeneric by Ping Identity</title>
+    
+    
+    <!-- Import the webpage's stylesheet -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="css/styles.css" rel="stylesheet" />
+    
+   <!-- Global site tag (gtag.js) - Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-58H02SVDGG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-58H02SVDGG');
+    </script>
+    <script type="text/javascript" src="analytics.js"></script>
+    
+
+    <!-- Google Analytics (UA) - Remove after migration to GA4 is complete -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-196676451-4', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <!-- End Google Analytics -->
+
+    <script type="text/javascript" src="{{ dvJsFile }}"></script>
+  </head>
+  <body>
+    <header class="masthead" style="background-image: url('https://cdn.glitch.me/e527ecf6-cfaf-462c-9a0f-da0c77633414%2Fhome-bg.jpg?v=1636660805462')">
+      <nav class="navbar fixed-top navbar-expand">
+        <div class="container px-4 px-lg-5">
+          <div class="navbar-brand" id="remix-bx-link"> 
+            {{#if showRemixButton}}<a href="#"><img src="https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button-v2.svg" alt="Remix on Glitch" /></a>{{/if}}
+          </div>
+          <div>
+            <ul class="navbar-nav ms-auto py-4 py-lg-0">
+              <li id="registerLink" class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#">Register</a></li>
+              <li id="loginLink" class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#">Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+            <div class="site-heading text-center">
+              <h1>BXGeneric</h1>
+              <span class="subheading">A Starter App for your Demos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+   
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 py-3 gx-lg-5 justify-content-center text-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <!-- Post preview-->
+          <div class="post-preview">
+            <div id="hellobox"></div>
+          </div>
+          <!-- Divider-->
+          <hr class="my-4" />
+        </div>
+      </div>
+    </div>
+  
+    <div id="widgetbox"></div>
+
+    <script type="text/javascript">
+      // Load necessary env variables into window so they can be used in widget.js
+      window.helloPolicyKey = '{{helloPolicyKey}}';
+      window.loginPolicyKey = '{{loginPolicyKey}}';
+      window.registerPolicyKey = '{{registerPolicyKey}}';
+    </script>
+    <script type="text/javascript" src="widget.js"></script>
+    
+  </body>
+</html>
