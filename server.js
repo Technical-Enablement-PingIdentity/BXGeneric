@@ -45,7 +45,8 @@ fastify.get("/", function(request, reply) {
     dvJsFile: process.env.DV_JS_LOCATION,
     helloPolicyKey: process.env.HELLO_POLICY_KEY,
     loginPolicyKey: process.env.LOGIN_POLICY_KEY,
-    registerPolicyKey: process.env.REGISTER_POLICY_KEY
+    registerPolicyKey: process.env.REGISTER_POLICY_KEY,
+    glitchRemixProject: process.env.GLITCH_REMIX_PROJECT
   });
 });
 

@@ -12,18 +12,18 @@ invokeWidget(helloFlowPolicyKey, 'hellobox');
 configureEventListener('registerLink', 'widgetbox', registerFlowPolicyKey);
 configureEventListener('loginLink', 'widgetbox', loginFlowPolicyKey);
 
-function configureEventListener(btnId, containerId, flowPolicyKey) {
+function configureEventListener(btnId, containerId, flowPolicyKey, params) {
   const btn = document.getElementById(btnId);
   if (btn && flowPolicyKey) {
     btn.addEventListener('click', (e) => {
       window.bxg_sendAnalytics('button_click', { button_text: e.target.alt === 'Remix on Glitch' ? e.target.alt : e.target.text });
-      invokeWidget(flowPolicyKey, containerId);
+      invokeWidget(flowPolicyKey, containerId, params);
     }, false);
   }
 }
 
 // Invoke the Widget with the desired Flow
-function invokeWidget(policyId, divId) {
+function invokeWidget(policyId, divId, params) {
   fetch('/getSkToken')
     .then(res => res.json())
     .then(data => {
@@ -38,6 +38,10 @@ function invokeWidget(policyId, divId) {
         useModal: false, 
         successCallback, errorCallback, onCloseModal 
       };
+
+      if (params) {
+        props.config.parameters = params;
+      }
         
       // Cleanup widget containers
       singularkey.cleanup(document.getElementById('widgetbox'));
@@ -77,4 +81,4 @@ document.addEventListener('click', function (e){
 });
 
 // load the Remix Widget
-configureEventListener('remix-bx-link', 'widgetbox', 'e6df00756fd2f66ea573a3a90ab8e938');
+configureEventListener('remix-bx-link', 'widgetbox', '3ed9d9b5eebdfe52eb2d566afd79e074', { GlitchProject: window.glitchRemixProject });
