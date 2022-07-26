@@ -16,7 +16,7 @@
     "consolelog": "^2.1.3"
   },
   "engines": {
-    "node": "12.x"
+    "node": "16.x"
   },
   "repository": {
     "url": "https://glitch.com/edit/#!/glitch-hello-node"
